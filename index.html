@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목정회 - 품격 있는 골프 동호회</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font (Tailwind default) -->
+    <style>
+        /* 기본 스타일 및 스크롤 부드럽게 */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Tailwind configuration for custom colors and theme */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#059669', /* Emerald green */
+                        'secondary': '#10b981', /* Lighter green */
+                        'dark-bg': '#1f2937', /* Dark gray for footer */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+        /* Mobile menu button icon transition */
+        .menu-icon span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            background: #fff;
+            transition: 0.4s;
+            border-radius: 2px;
+        }
+        .menu-icon.open span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .menu-icon.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-icon.open span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 w-full bg-black bg-opacity-70 backdrop-blur-sm shadow-md z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+            <!-- Club Name / Logo (text-3xl -> text-2xl로 크기 조정) -->
+            <a href="#home" class="text-2xl font-extrabold text-white tracking-wider hover:text-secondary transition duration-300">
+                목정회
+            </a>
+
+            <!-- Desktop Navigation (Top Right) -->
+            <nav class="hidden md:flex space-x-8 items-center text-lg font-medium">
+                <a href="#home" class="text-white hover:text-primary transition duration-300">홈</a>
+                <a href="#about" class="text-white hover:text-primary transition duration-300">동호회 소개</a>
+                <a href="#contact" class="text-white hover:text-primary transition duration-300">연락하기</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 focus:outline-none menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Dropdown) -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-80 pb-4 text-center">
+            <a href="#home" class="block py-2 text-white hover:bg-primary/20 transition duration-300 border-t border-gray-700" onclick="closeMobileMenu()">홈</a>
+            <a href="#about" class="block py-2 text-white hover:bg-primary/20 transition duration-300 border-t border-gray-700" onclick="closeMobileMenu()">동호회 소개</a>
+            <a href="#contact" class="block py-2 text-white hover:bg-primary/20 transition duration-300 border-t border-gray-700" onclick="closeMobileMenu()">연락하기</a>
+        </nav>
+    </header>
+
+    <!-- 1. Hero Section (Intro Page - Impressive Image) -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        <!-- Background Image (Replace with a high-res golf course image) -->
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/059669/ffffff?text=Mokjeonghoe+Golf+Club');">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+        </div>
+
+        <div class="relative z-10 p-6 max-w-4xl mx-auto">
+            <!-- Hero Headline (text-5xl md:text-7xl -> text-4xl md:text-6xl로 크기 조정) -->
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 animate-fadeIn">
+                목정회: 품격과 열정의 만남
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 font-light">
+                최고의 동반자들과 함께 필드 위에서 나누는 즐거움과 교류
+            </p>
+            <a href="#about" class="inline-block px-8 py-3 bg-primary text-white text-lg font-semibold rounded-full shadow-lg hover:bg-secondary transition duration-300 transform hover:scale-105">
+                동호회 알아보기
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. About Section -->
+    <section id="about" class="py-20 md:py-32 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-gray-800 text-center mb-12 border-b-4 border-primary inline-block pb-1 mx-auto">
+                동호회 소개
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="p-6 bg-gray-100 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold text-primary mb-4">목정회의 가치</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        목정회는 '맑은 정신과 푸른 필드'를 모토로, 단순한 스포츠 활동을 넘어 회원 간의 깊은 친목과 교류를 중시하는 프리미엄 골프 동호회입니다. 매월 정기 라운딩과 다양한 친선 경기를 통해 실력 향상과 즐거움을 동시에 추구합니다.
+                    </p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>정기적인 라운딩 및 이벤트</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>수준별 맞춤 레슨 지원</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>회원 간의 활발한 네트워킹</li>
+                    </ul>
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-2xl">
+                    <img src="https://placehold.co/800x600/10b981/ffffff?text=Golf+Field" alt="라운딩 이미지" class="w-full h-auto object-cover transform hover:scale-105 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Contact Section (연락처 작성 페이지) -->
+    <section id="contact" class="py-20 md:py-32 bg-gray-100">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+            <h2 class="text-4xl font-bold text-gray-800 text-center mb-12 border-b-4 border-primary inline-block pb-1 mx-auto">
+                목정회 가입 및 문의
+            </h2>
+            <p class="text-center text-lg text-gray-600 mb-10">
+                동호회 가입 문의, 협력 제안 등 궁금한 점을 남겨주시면 빠르게 답변드리겠습니다.
+            </p>
+
+            <form id="contactForm" class="bg-white p-8 rounded-xl shadow-2xl border border-gray-200">
+                <div class="mb-6">
+                    <label for="name" class="block text-gray-700 text-sm font-semibold mb-2">성함</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-200" placeholder="홍길동">
+                </div>
+                <div class="mb-6">
+                    <label for="email" class="block text-gray-700 text-sm font-semibold mb-2">이메일 주소</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-200" placeholder="email@example.com">
+                </div>
+                <div class="mb-6">
+                    <label for="phone" class="block text-gray-700 text-sm font-semibold mb-2">연락처 (선택)</label>
+                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-200" placeholder="010-1234-5678">
+                </div>
+                <div class="mb-6">
+                    <label for="message" class="block text-gray-700 text-sm font-semibold mb-2">문의 내용</label>
+                    <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-200" placeholder="가입 절차에 대해 문의합니다."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-secondary transition duration-300 shadow-md transform hover:scale-[1.01]">
+                    문의 접수하기
+                </button>
+            </form>
+
+            <!-- Success Message Box (Hidden by default) -->
+            <div id="successMessage" class="hidden mt-8 p-4 bg-green-100 border-l-4 border-primary text-primary rounded-lg text-center font-medium">
+                문의가 성공적으로 접수되었습니다. 빠른 시일 내에 연락드리겠습니다!
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-bg text-white py-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
+
+            <!-- Footer Left: Required Menus -->
+            <div>
+                <h4 class="text-xl font-bold mb-4 border-b border-primary pb-1 inline-block">주요 정보</h4>
+                <nav class="space-y-2">
+                    <a href="#" class="block text-gray-300 hover:text-primary transition duration-200">멤버현황</a>
+                    <a href="#" class="block text-gray-300 hover:text-primary transition duration-200">회칙</a>
+                    <a href="#" class="block text-gray-300 hover:text-primary transition duration-200">모임공지</a>
+                </nav>
+            </div>
+
+            <!-- Footer Center: Club Info -->
+            <div>
+                <h4 class="text-xl font-bold mb-4 border-b border-primary pb-1 inline-block">목정회</h4>
+                <p class="text-gray-300 mb-2">
+                    <svg class="w-4 h-4 inline mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                    서울시 강남구 골프대로 123
+                </p>
+                <p class="text-gray-300 mb-2">
+                    <svg class="w-4 h-4 inline mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                    contact@mokjeonghoe.com
+                </p>
+                <p class="text-gray-300">
+                    <svg class="w-4 h-4 inline mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.772-1.549a1 1 0 011.06-.54l4.435.74A1 1 0 0118 16.847V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                    02-1234-5678
+                </p>
+            </div>
+
+            <!-- Footer Right: Social -->
+            <div>
+                <h4 class="text-xl font-bold mb-4 border-b border-primary pb-1 inline-block">SNS</h4>
+                <div class="flex space-x-4 text-2xl">
+                    <a href="#" class="hover:text-primary transition duration-200">F</a> <!-- Placeholder for Facebook Icon -->
+                    <a href="#" class="hover:text-primary transition duration-200">I</a> <!-- Placeholder for Instagram Icon -->
+                    <a href="#" class="hover:text-primary transition duration-200">B</a> <!-- Placeholder for Blog Icon -->
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 pt-4 border-t border-gray-700 text-center text-sm text-gray-500">
+            &copy; 2024 목정회. All rights reserved. Designed with passion for golf.
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const contactForm = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+
+            // 1. Mobile Menu Toggle
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuButton.classList.toggle('open');
+            });
+
+            // Function to close mobile menu after clicking a link
+            window.closeMobileMenu = function() {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.classList.remove('open');
+                }
+            }
+
+            // 2. Form Submission Handler
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevent actual form submission (since there's no backend)
+
+                // Simulate form data collection
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                console.log('--- 문의 접수 내용 ---');
+                console.log(`성함: ${name}`);
+                console.log(`이메일: ${email}`);
+                console.log(`문의 내용: ${message}`);
+                console.log('---------------------');
+
+                // Show success message and clear form
+                contactForm.reset();
+                successMessage.classList.remove('hidden');
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                }, 5000);
+            });
+
+            // 3. Smooth Scrolling for all internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
